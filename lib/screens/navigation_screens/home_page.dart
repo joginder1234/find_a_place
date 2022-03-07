@@ -1,7 +1,9 @@
 import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:dropdown_formfield/dropdown_formfield.dart';
+import 'package:find_a_place/bottom_nav.dart';
 import 'package:find_a_place/commons/colors.dart';
 import 'package:find_a_place/screens/navigation_screens/explore.dart';
+import 'package:find_a_place/screens/navigation_screens/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
@@ -26,7 +28,7 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         resizeToAvoidBottomInset: true,
         bottomNavigationBar: Container(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.fromLTRB(20, 8, 20, 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -35,8 +37,8 @@ class _HomePageState extends State<HomePage> {
                   scaleFactor: 1.5,
                   child: _buildBottomButtons(fwidth, kwhiteColor, 'Skip', true),
                   onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => ExploreScreen()));
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (_) => MyHomePage()));
                   },
                 ),
                 BouncingWidget(
@@ -48,19 +50,9 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             )),
-        appBar: AppBar(
-          foregroundColor: Colors.black,
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          leading: IconButton(
-              onPressed: () => ZoomDrawer.of(context)!.toggle(),
-              icon: const Icon(
-                Icons.menu,
-                color: Colors.black,
-              )),
-        ),
         body: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: EdgeInsets.fromLTRB(
+              20, AppBar().preferredSize.height + 10, 20, 20),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -280,7 +272,7 @@ class _HomePageState extends State<HomePage> {
       double fwidth, Color buttoncolor, String title, bool border) {
     return Container(
       alignment: Alignment.center,
-      height: 55,
+      height: 50,
       width: fwidth * 0.42,
       decoration: border
           ? BoxDecoration(

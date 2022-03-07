@@ -115,10 +115,7 @@ class _ProfileScreenState extends State<MyCustomDrawer> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(100)),
                     color: kwhiteColor,
-                    onPressed: () {
-                      // Navigator.of(context).push(
-                      //     MaterialPageRoute(builder: (_) => HomePage()));
-                    },
+                    onPressed: () {},
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           vertical: 15, horizontal: 30),

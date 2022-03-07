@@ -1,4 +1,5 @@
 import 'package:find_a_place/commons/colors.dart';
+import 'package:find_a_place/screens/navigation_screens/explore.dart';
 import 'package:find_a_place/screens/navigation_screens/home_page.dart';
 import 'package:find_a_place/widgets/drawer.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,6 @@ class _MyCustomDrawerState extends State<MyHomePage> {
         angle: -7,
         slideWidth: 330,
         menuScreen: MyCustomDrawer(),
-        mainScreen: HomePage());
+        mainScreen: ExploreScreen());
   }
 }
